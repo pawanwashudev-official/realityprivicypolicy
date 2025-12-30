@@ -1,7 +1,7 @@
 {
     "rewrites": [
         {
-            "source": "/",
+            "source": "/(.*)",
             "has": [
                 {
                     "type": "host",
@@ -9,6 +9,19 @@
                 }
             ],
             "destination": "/privacy.html"
+        }
+    ],
+    "redirects": [
+        {
+            "source": "/",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "realityprivicypolicy.vercel.app"
+                }
+            ],
+            "destination": "/privacy.html",
+            "permanent": false
         }
     ]
 }
