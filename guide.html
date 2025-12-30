@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide - Reality App</title>
+    <meta name="description"
+        content="Complete guide to using Reality app. Setup, permissions, features, and troubleshooting.">
+    <link rel="icon" type="image/png"
+        href="https://res.cloudinary.com/dnh4fonis/image/upload/v1766755541/gk1gp3sf5ihygmo9wfv8.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Page Header */
+        .page-header {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 60px;
+        }
+
+        .toc h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .toc-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            list-style: none;
+        }
+
+        .toc-list a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+
+        .toc-list a:hover {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            margin-bottom: 80px;
+            scroll-margin-top: 100px;
+        }
+
+        .guide-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .guide-section h2 .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        /* Steps */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 24px;
+            padding: 28px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            transition: all var(--transition-normal);
+        }
+
+        .step:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateX(8px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 24px;
+            border-radius: 16px;
+            margin: 24px 0;
+        }
+
+        .info-box-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .info-box-warning h4 {
+            color: var(--accent-warning);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-box-tip {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .info-box-tip h4 {
+            color: var(--accent-tertiary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-box p {
+            color: var(--text-secondary);
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background var(--transition-fast);
+        }
+
+        .faq-question:hover {
+            background: rgba(139, 92, 246, 0.05);
+        }
+
+        .faq-answer {
+            padding: 0 24px 20px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform var(--transition-fast);
+        }
+
+        /* Permission Cards */
+        .permission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .permission-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 28px;
+        }
+
+        .permission-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .permission-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .permission-required {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+        }
+
+        .permission-optional {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        @media (max-width: 1024px) {
+            .toc-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .permission-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="https://res.cloudinary.com/dnh4fonis/image/upload/v1766755541/gk1gp3sf5ihygmo9wfv8.png"
+                    alt="Reality">
+                Reality
+            </a>
+            <div class="navbar-menu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="features.html" class="navbar-link">Features</a>
+                <a href="guide.html" class="navbar-link active">User Guide</a>
+                <a href="about.html" class="navbar-link">About</a>
+                <a href="privacy.html" class="navbar-link">Privacy</a>
+            </div>
+            <a href="https://github.com/pawanwashudev-official/Reality/releases/latest" class="navbar-cta"
+                target="_blank">
+                Download
+            </a>
+            <button class="navbar-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="reveal">User <span class="gradient-text">Guide</span></h1>
+            <p class="reveal">Complete guide to setting up and using Reality. From installation to advanced features.
+            </p>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Table of Contents -->
+            <div class="toc reveal">
+                <h3>📖 Table of Contents</h3>
+                <ul class="toc-list">
+                    <li><a href="#installation">📥 Installation</a></li>
+                    <li><a href="#permissions">🔐 Permissions</a></li>
+                    <li><a href="#first-setup">🚀 First Time Setup</a></li>
+                    <li><a href="#blocking">🚫 Blocking Apps</a></li>
+                    <li><a href="#limits">⏱️ Usage Limits</a></li>
+                    <li><a href="#schedules">📅 Schedules</a></li>
+                    <li><a href="#strict-mode">🔒 Strict Mode</a></li>
+                    <li><a href="#troubleshooting">🔧 Troubleshooting</a></li>
+                    <li><a href="#faq">❓ FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Installation -->
+            <div class="guide-section reveal" id="installation">
+                <h2>
+                    <span class="section-icon">📥</span>
+                    Installation
+                </h2>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Download the APK</h3>
+                            <p>Go to <a href="https://github.com/pawanwashudev-official/Reality/releases/latest"
+                                    target="_blank" style="color: var(--accent);">GitHub Releases</a> and download the
+                                latest Reality APK file.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Enable Unknown Sources</h3>
+                            <p>If prompted, allow installation from unknown sources for your browser or file manager.
+                                This is required for installing apps outside Play Store.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Handle Play Protect Warning</h3>
+                            <p>If Google Play Protect shows a warning, tap "More details" → "Install anyway". This
+                                warning appears because Reality uses Accessibility Service, which is necessary for
+                                blocking apps.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Launch Reality</h3>
+                            <p>Open the app and follow the setup wizard to grant necessary permissions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box info-box-warning">
+                    <h4>⚠️ About Play Protect Warning</h4>
+                    <p>This warning is automated and appears for any app using Accessibility Service. Reality is 100%
+                        open source — you can verify every line of code on GitHub. We collect zero data.</p>
+                </div>
+            </div>
+
+            <!-- Permissions -->
+            <div class="guide-section reveal" id="permissions">
+                <h2>
+                    <span class="section-icon">🔐</span>
+                    Required Permissions
+                </h2>
+
+                <div class="permission-grid">
+                    <div class="permission-card">
+                        <h4>
+                            <span>🔍 Accessibility Service</span>
+                            <span class="permission-required">Required</span>
+                        </h4>
+                        <p>Allows Reality to detect which app is currently open and block access when needed. This is
+                            the core permission that makes blocking work.</p>
+                    </div>
+                    <div class="permission-card">
+                        <h4>
+                            <span>📊 Usage Stats Access</span>
+                            <span class="permission-required">Required</span>
+                        </h4>
+                        <p>Enables tracking of your screen time. This data stays on your device and is never uploaded
+                            anywhere.</p>
+                    </div>
+                    <div class="permission-card">
+                        <h4>
+                            <span>🔲 Display Over Other Apps</span>
+                            <span class="permission-required">Required</span>
+                        </h4>
+                        <p>Shows block screens and warning overlays when you try to open a blocked app.</p>
+                    </div>
+                    <div class="permission-card">
+                        <h4>
+                            <span>🛡️ Device Administrator</span>
+                            <span class="permission-optional">Optional</span>
+                        </h4>
+                        <p>Only needed for anti-uninstall protection in Strict Mode. Can be enabled/disabled anytime.
+                        </p>
+                    </div>
+                    <div class="permission-card">
+                        <h4>
+                            <span>📅 Calendar Access</span>
+                            <span class="permission-optional">Optional</span>
+                        </h4>
+                        <p>Only needed if you want to sync with Google Calendar for automatic focus during events.</p>
+                    </div>
+                    <div class="permission-card">
+                        <h4>
+                            <span>🔔 Notifications</span>
+                            <span class="permission-optional">Optional</span>
+                        </h4>
+                        <p>For reminder notifications and limit warnings. Can be disabled if you prefer silent
+                            operation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- First Setup -->
+            <div class="guide-section reveal" id="first-setup">
+                <h2>
+                    <span class="section-icon">🚀</span>
+                    First Time Setup
+                </h2>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Grant Permissions</h3>
+                            <p>Follow the in-app prompts to enable Accessibility Service and Usage Stats. These are
+                                essential for the app to function.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Add Apps to Blocklist</h3>
+                            <p>Go to the Blocklist tab and select apps you want to block during focus time. Start with
+                                your biggest time-wasters (social media, games).</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Set Usage Limits (Optional)</h3>
+                            <p>Go to Limits tab and set daily time limits for specific apps. Example: 30 minutes of
+                                Instagram per day.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Start a Focus Session</h3>
+                            <p>From the main screen, tap the big focus button to start your first session. Choose
+                                duration (25min, 1hr, etc.) and begin!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box info-box-tip">
+                    <h4>💡 Pro Tip</h4>
+                    <p>Start with a short 25-minute focus session. As you build the habit, gradually increase your
+                        session durations.</p>
+                </div>
+            </div>
+
+            <!-- Blocking Apps -->
+            <div class="guide-section reveal" id="blocking">
+                <h2>
+                    <span class="section-icon">🚫</span>
+                    Blocking Apps & Websites
+                </h2>
+
+                <p style="color: var(--text-secondary); margin-bottom: 24px;">Reality offers multiple blocking modes to
+                    fit your needs:</p>
+
+                <div class="permission-grid">
+                    <div class="permission-card">
+                        <h4>🚫 Blocklist Mode</h4>
+                        <p>Select specific apps to block. Everything else is allowed. Best for: blocking known
+                            distractions while keeping full access to other apps.</p>
+                    </div>
+                    <div class="permission-card">
+                        <h4>✅ Allowlist Mode</h4>
+                        <p>Select apps to ALLOW. Everything else is blocked. Best for: deep focus sessions where you
+                            only need 2-3 work apps.</p>
+                    </div>
+                </div>
+
+                <div class="info-box info-box-tip" style="margin-top: 24px;">
+                    <h4>💡 Website Blocking</h4>
+                    <p>To block websites, add them to your blocklist (e.g., "facebook.com"). Reality monitors all
+                        browsers and blocks the site across Chrome, Firefox, Brave, and any other browser.</p>
+                </div>
+            </div>
+
+            <!-- Strict Mode -->
+            <div class="guide-section reveal" id="strict-mode">
+                <h2>
+                    <span class="section-icon">🔒</span>
+                    Strict Mode Guide
+                </h2>
+
+                <p style="color: var(--text-secondary); margin-bottom: 24px;">Strict Mode is Reality's nuclear option.
+                    Once enabled, there's NO way to bypass blocking until the timer expires.</p>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">⏱️</div>
+                        <div class="step-content">
+                            <h3>Timer Lock</h3>
+                            <p>Set a lock duration (1 hour to 21 days). During this time, you CANNOT disable blocking or
+                                change settings. The only escape is waiting.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">🔑</div>
+                        <div class="step-content">
+                            <h3>Password Protection</h3>
+                            <p>Set a password to protect settings. If you forget it, you'll need to wait 24 hours for
+                                recovery — this delay prevents impulsive unlocking.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">🛡️</div>
+                        <div class="step-content">
+                            <h3>Anti-Uninstall Protection</h3>
+                            <p>Enable Device Admin and Reality cannot be uninstalled. The uninstall button simply won't
+                                work until you disable this setting.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box info-box-warning">
+                    <h4>⚠️ Use Strict Mode Carefully</h4>
+                    <p>Once Strict Mode timer is active, there is genuinely NO way to bypass it. Make sure you've
+                        configured your blocklist correctly before enabling. Start with short durations (1-2 hours)
+                        until you're comfortable.</p>
+                </div>
+            </div>
+
+            <!-- Troubleshooting -->
+            <div class="guide-section reveal" id="troubleshooting">
+                <h2>
+                    <span class="section-icon">🔧</span>
+                    Troubleshooting
+                </h2>
+
+                <div class="permission-grid">
+                    <div class="permission-card">
+                        <h4>🔌 App Stops Working in Background</h4>
+                        <p>Some phones kill background apps aggressively. Go to Settings → Apps → Reality → Battery →
+                            Allow background activity. Also disable battery optimization for Reality.</p>
+                    </div>
+                    <div class="permission-card">
+                        <h4>📊 Usage Stats Not Accurate</h4>
+                        <p>Make sure Usage Stats permission is granted. Go to Settings → Apps → Special access → Usage
+                            access → Enable for Reality.</p>
+                    </div>
+                    <div class="permission-card">
+                        <h4>🚫 Blocking Not Working</h4>
+                        <p>Verify Accessibility Service is enabled. Some phones disable it after updates. Go to Settings
+                            → Accessibility → Reality → Enable.</p>
+                    </div>
+                    <div class="permission-card">
+                        <h4>📅 Calendar Not Syncing</h4>
+                        <p>Grant Calendar permission in app settings. Then go to Schedule → Settings and enable calendar
+                            sync.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="guide-section reveal" id="faq">
+                <h2>
+                    <span class="section-icon">❓</span>
+                    Frequently Asked Questions
+                </h2>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Is Reality really free? What's the catch?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, Reality is 100% free with all features unlocked. No premium tier, no subscriptions, no ads.
+                        We built this app because we needed it ourselves, and we made it open source so everyone can
+                        benefit. There's no catch — just a genuine tool for digital wellbeing.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Does Reality collect my data?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        No. Reality has no internet permission — it physically cannot send data anywhere. All your usage
+                        stats, blocked apps, and settings stay on your device. We can't see any of it. You can verify
+                        this in our open source code.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Can I bypass Strict Mode if I really need to?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        That's the point — you can't. Strict Mode is designed for when you don't trust your own
+                        willpower. If you need true emergencies access, keep the "Emergency Bypass" option enabled
+                        (gives 3 bypasses per day, 5 minutes each). Otherwise, the only way out is waiting.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Why does Play Protect show a warning?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Google flags any app using Accessibility Service because it's a powerful permission. Reality
+                        uses it legitimately — to detect which app is open and show block screens. Since we're not on
+                        Play Store, Google's automated scans flag us. Reality is open source, so you can verify every
+                        line of code yourself.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Will Reality drain my battery?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Reality is optimized for minimal battery usage. It sits quietly in the background and only
+                        activates when you switch apps. Most users report negligible battery impact — typically under 1%
+                        per day.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Can I use Reality alongside other focus apps?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We recommend using Reality alone to avoid conflicts. Using multiple accessibility-based blockers
+                        can cause unexpected behavior. Reality provides all the features you need in one app.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-dark">
+        <div class="container text-center">
+            <h2 class="section-title reveal">Still Have <span class="gradient-text">Questions</span>?</h2>
+            <p class="section-subtitle reveal mb-4">Reach out to us on Telegram or GitHub.</p>
+            <div class="reveal flex flex-center gap-2">
+                <a href="https://t.me/pawanwashudev" class="btn btn-primary btn-lg" target="_blank">
+                    💬 Telegram
+                </a>
+                <a href="https://github.com/pawanwashudev-official/Reality/issues" class="btn btn-secondary btn-lg"
+                    target="_blank">
+                    📂 GitHub Issues
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="navbar-logo">
+                        <img src="https://res.cloudinary.com/dnh4fonis/image/upload/v1766755541/gk1gp3sf5ihygmo9wfv8.png"
+                            alt="Reality">
+                        Reality
+                    </a>
+                    <p>The world's most powerful digital focus app. Zero data collection. Zero ads.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="features.html">Features</a>
+                    <a href="guide.html">User Guide</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="https://github.com/pawanwashudev-official/Reality" target="_blank">GitHub</a>
+                    <a href="https://github.com/pawanwashudev-official/Reality/releases" target="_blank">Releases</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="mailto:pawanwashudev@gmail.com">Email</a>
+                    <a href="https://t.me/pawanwashudev" target="_blank">Telegram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Neubofy. Made with ❤️ by Pawan Washudev</p>
+                <div class="social-links">
+                    <a href="https://github.com/pawanwashudev-official" target="_blank">📂</a>
+                    <a href="https://t.me/pawanwashudev" target="_blank">💬</a>
+                    <a href="mailto:pawanwashudev@gmail.com">✉️</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

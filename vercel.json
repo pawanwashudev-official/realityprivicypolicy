@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "realityprivacypolicy.vercel.app"
+        }
+      ],
+      "destination": "/privacy.html"
+    }
+  ]
+}

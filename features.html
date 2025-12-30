@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Reality App</title>
+    <meta name="description"
+        content="Explore all 50+ features of Reality app. App blocking, website blocking, usage limits, strict mode, and more.">
+    <link rel="icon" type="image/png"
+        href="https://res.cloudinary.com/dnh4fonis/image/upload/v1766755541/gk1gp3sf5ihygmo9wfv8.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Page Header */
+        .page-header {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Feature Categories */
+        .feature-category {
+            margin-bottom: 80px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .category-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .category-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        /* Feature Detail Card */
+        .feature-detail {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: center;
+            padding: 60px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 32px;
+            margin-bottom: 40px;
+        }
+
+        .feature-detail.reverse {
+            grid-template-columns: 400px 1fr;
+        }
+
+        .feature-detail.reverse .feature-visual {
+            order: -1;
+        }
+
+        .feature-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--accent-tertiary);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .feature-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .feature-screenshot {
+            max-width: 100%;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Small Feature Grid */
+        .small-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .small-feature {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 28px;
+            transition: all var(--transition-normal);
+        }
+
+        .small-feature:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .small-feature-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .small-feature h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .small-feature p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1024px) {
+            .feature-detail {
+                grid-template-columns: 1fr;
+                padding: 40px;
+            }
+
+            .feature-detail.reverse {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-detail.reverse .feature-visual {
+                order: 0;
+            }
+
+            .small-features {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .small-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="https://res.cloudinary.com/dnh4fonis/image/upload/v1766755541/gk1gp3sf5ihygmo9wfv8.png"
+                    alt="Reality">
+                Reality
+            </a>
+            <div class="navbar-menu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="features.html" class="navbar-link active">Features</a>
+                <a href="guide.html" class="navbar-link">User Guide</a>
+                <a href="about.html" class="navbar-link">About</a>
+                <a href="privacy.html" class="navbar-link">Privacy</a>
+            </div>
+            <a href="https://github.com/pawanwashudev-official/Reality/releases/latest" class="navbar-cta"
+                target="_blank">
+                Download
+            </a>
+            <button class="navbar-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="reveal">All <span class="gradient-text">Features</span></h1>
+            <p class="reveal">Discover every powerful feature that makes Reality the ultimate digital wellbeing
+                companion.</p>
+        </div>
+    </header>
+
+    <!-- App Blocking Section -->
+    <section class="section">
+        <div class="container">
+            <div class="feature-category">
+                <div class="category-header reveal">
+                    <div class="category-icon">🚫</div>
+                    <h2>App Blocking</h2>
+                </div>
+
+                <div class="feature-detail reveal">
+                    <div class="feature-content">
+                        <h3>Block Any App Instantly</h3>
+                        <p>When you try to open a blocked app, Reality intercepts and shows a beautiful focus screen. No
+                            tricks, no workarounds — just pure focus protection.</p>
+                        <ul class="feature-list">
+                            <li>Block unlimited apps simultaneously</li>
+                            <li>Beautiful full-screen block overlay</li>
+                            <li>Works with all Android apps</li>
+                            <li>Instant activation, no delay</li>
+                            <li>Option to show motivational quotes</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <!-- PLACEHOLDER: Block screen screenshot -->
+                        <div class="img-placeholder" style="min-height: 450px; width: 100%;">
+                            <div class="img-placeholder-icon">🚫</div>
+                            <div class="img-placeholder-text">
+                                <strong>App Block Screen</strong><br>
+                                <small>screenshot_block_screen.png</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-detail reverse reveal">
+                    <div class="feature-content">
+                        <h3>Allowlist Mode</h3>
+                        <p>Flip the script — instead of blocking specific apps, allow ONLY the apps you need. Everything
+                            else is automatically blocked.</p>
+                        <ul class="feature-list">
+                            <li>Perfect for deep work sessions</li>
+                            <li>Allow only work apps (Slack, Email)</li>
+                            <li>Blocks all distractions by default</li>
+                            <li>Quick toggle between modes</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <!-- PLACEHOLDER: Allowlist mode screenshot -->
+                        <div class="img-placeholder" style="min-height: 450px; width: 100%;">
+                            <div class="img-placeholder-icon">✅</div>
+                            <div class="img-placeholder-text">
+                                <strong>Allowlist Mode</strong><br>
+                                <small>screenshot_allowlist.png</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage Limits Section -->
+            <div class="feature-category">
+                <div class="category-header reveal">
+                    <div class="category-icon">⏱️</div>
+                    <h2>Usage Limits & Groups</h2>
+                </div>
+
+                <div class="small-features">
+                    <div class="small-feature reveal stagger-1">
+                        <div class="small-feature-icon">📊</div>
+                        <h4>Per-App Daily Limits</h4>
+                        <p>Set specific time limits for each app. "30 minutes of Instagram per day" — once used, blocked
+                            until tomorrow.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-2">
+                        <div class="small-feature-icon">👥</div>
+                        <h4>Smart App Groups</h4>
+                        <p>Create groups like "Social Media" with a shared pool. 1 hour total for Instagram + TikTok +
+                            Twitter combined.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-3">
+                        <div class="small-feature-icon">🔄</div>
+                        <h4>Auto-Reset at Midnight</h4>
+                        <p>All limits reset automatically at midnight. Fresh start every day.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-4">
+                        <div class="small-feature-icon">📈</div>
+                        <h4>Real-Time Tracking</h4>
+                        <p>See remaining time for each app. Progress bar shows how much limit is left.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-5">
+                        <div class="small-feature-icon">⚡</div>
+                        <h4>Accurate Usage Data</h4>
+                        <p>Uses Android's official usage stats — matches Digital Wellbeing exactly.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-6">
+                        <div class="small-feature-icon">🔔</div>
+                        <h4>Limit Warnings</h4>
+                        <p>Get notified when approaching your limit. Warning at 5 minutes remaining.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scheduling Section -->
+            <div class="feature-category">
+                <div class="category-header reveal">
+                    <div class="category-icon">📅</div>
+                    <h2>Smart Scheduling</h2>
+                </div>
+
+                <div class="feature-detail reveal">
+                    <div class="feature-content">
+                        <h3>Calendar Integration</h3>
+                        <p>Reality syncs with your Google Calendar and automatically enables focus mode during events.
+                            Meeting from 2-3 PM? Focus mode activates automatically.</p>
+                        <ul class="feature-list">
+                            <li>Sync with Google Calendar</li>
+                            <li>Auto-enable focus during events</li>
+                            <li>See all schedules in timeline view</li>
+                            <li>Custom schedules + calendar events</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <!-- PLACEHOLDER: Schedule timeline screenshot -->
+                        <div class="img-placeholder" style="min-height: 450px; width: 100%;">
+                            <div class="img-placeholder-icon">📅</div>
+                            <div class="img-placeholder-text">
+                                <strong>Schedule Timeline</strong><br>
+                                <small>screenshot_schedule.png</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="small-features">
+                    <div class="small-feature reveal stagger-1">
+                        <div class="small-feature-icon">😴</div>
+                        <h4>Bedtime Mode</h4>
+                        <p>Block distractions during sleep hours. 10 PM to 7 AM — no social media, no games.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-2">
+                        <div class="small-feature-icon">🔁</div>
+                        <h4>Repeat Days</h4>
+                        <p>Set different schedules for weekdays vs weekends. Complete flexibility.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-3">
+                        <div class="small-feature-icon">🎯</div>
+                        <h4>Quick Focus Sessions</h4>
+                        <p>Start instant focus sessions: 25min, 1 hour, or custom duration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strict Mode Section -->
+            <div class="feature-category">
+                <div class="category-header reveal">
+                    <div class="category-icon">🔐</div>
+                    <h2>Strict Mode (Unbreakable)</h2>
+                </div>
+
+                <div class="feature-detail reveal">
+                    <div class="feature-content">
+                        <h3>When Willpower Fails</h3>
+                        <p>Strict Mode is our nuclear option. Once enabled, there is NO way to disable blocking until
+                            the timer expires. Not you, not anyone.</p>
+                        <ul class="feature-list">
+                            <li><strong>Timer Lock:</strong> Lock for 1 hour to 21 days</li>
+                            <li><strong>Password Protection:</strong> Protect settings with password</li>
+                            <li><strong>24-Hour Recovery:</strong> Forgot password? Wait 24 hours</li>
+                            <li><strong>Anti-Uninstall:</strong> App cannot be uninstalled</li>
+                            <li><strong>Anti-Time Cheat:</strong> Changing system time won't work</li>
+                            <li><strong>Emergency Lock:</strong> Disable even emergency bypass</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <!-- PLACEHOLDER: Strict mode screenshot -->
+                        <div class="img-placeholder" style="min-height: 450px; width: 100%;">
+                            <div class="img-placeholder-icon">🔐</div>
+                            <div class="img-placeholder-text">
+                                <strong>Strict Mode Settings</strong><br>
+                                <small>screenshot_strict_mode.png</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Features -->
+            <div class="feature-category">
+                <div class="category-header reveal">
+                    <div class="category-icon">✨</div>
+                    <h2>More Features</h2>
+                </div>
+
+                <div class="small-features">
+                    <div class="small-feature reveal stagger-1">
+                        <div class="small-feature-icon">🌐</div>
+                        <h4>Website Blocking</h4>
+                        <p>Block websites across all browsers. Add facebook.com and it's blocked everywhere.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-2">
+                        <div class="small-feature-icon">🔔</div>
+                        <h4>Smart Reminders</h4>
+                        <p>Full-screen alarms for tasks. With snooze and recycle bin.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-3">
+                        <div class="small-feature-icon">📊</div>
+                        <h4>Usage Analytics</h4>
+                        <p>Beautiful charts showing your daily and weekly usage patterns.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-4">
+                        <div class="small-feature-icon">🔕</div>
+                        <h4>Auto DND</h4>
+                        <p>Automatically enable Do Not Disturb during focus sessions.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-5">
+                        <div class="small-feature-icon">🎨</div>
+                        <h4>Material You</h4>
+                        <p>Dynamic theming that matches your wallpaper. Beautiful dark mode.</p>
+                    </div>
+                    <div class="small-feature reveal stagger-6">
+                        <div class="small-feature-icon">📴</div>
+                        <h4>Works Offline</h4>
+                        <p>No internet required. Works anywhere, anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-dark">
+        <div class="container text-center">
+            <h2 class="section-title reveal">Ready to Get <span class="gradient-text">Focused</span>?</h2>
+            <p class="section-subtitle reveal mb-4">All these features are 100% free. No premium, no subscriptions.</p>
+            <div class="reveal">
+                <a href="https://github.com/pawanwashudev-official/Reality/releases/latest"
+                    class="btn btn-primary btn-lg" target="_blank">
+                    📥 Download Reality
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="navbar-logo">
+                        <img src="https://res.cloudinary.com/dnh4fonis/image/upload/v1766755541/gk1gp3sf5ihygmo9wfv8.png"
+                            alt="Reality">
+                        Reality
+                    </a>
+                    <p>The world's most powerful digital focus app. Zero data collection. Zero ads.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="features.html">Features</a>
+                    <a href="guide.html">User Guide</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="https://github.com/pawanwashudev-official/Reality" target="_blank">GitHub</a>
+                    <a href="https://github.com/pawanwashudev-official/Reality/releases" target="_blank">Releases</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="mailto:pawanwashudev@gmail.com">Email</a>
+                    <a href="https://t.me/pawanwashudev" target="_blank">Telegram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Neubofy. Made with ❤️ by Pawan Washudev</p>
+                <div class="social-links">
+                    <a href="https://github.com/pawanwashudev-official" target="_blank">📂</a>
+                    <a href="https://t.me/pawanwashudev" target="_blank">💬</a>
+                    <a href="mailto:pawanwashudev@gmail.com">✉️</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

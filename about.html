@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Reality App</title>
+    <meta name="description"
+        content="Learn about Reality - the philosophy, mission, and the developer behind the world's most powerful digital focus app.">
+    <link rel="icon" type="image/png"
+        href="https://res.cloudinary.com/dnh4fonis/image/upload/v1766755541/gk1gp3sf5ihygmo9wfv8.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Page Header */
+        .page-header {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Story Section */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .story-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .story-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Developer Card */
+        .developer-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 32px;
+            padding: 48px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .developer-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            overflow: hidden;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 40px var(--accent-glow);
+        }
+
+        .developer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .developer-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .developer-role {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .developer-bio {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .developer-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .developer-links a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all var(--transition-fast);
+            border: 1px solid var(--border);
+        }
+
+        .developer-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .value-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 0;
+        }
+
+        .quote {
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .quote span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quote-author {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Open Source Section */
+        .opensource-section {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid var(--border-glass);
+            border-radius: 32px;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .opensource-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .opensource-section p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .github-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .github-stat {
+            text-align: center;
+        }
+
+        .github-stat h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .github-stat p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+            padding-right: calc(50% + 40px);
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+            padding-left: calc(50% + 40px);
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            max-width: 350px;
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .story-visual {
+                order: -1;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-right: 0;
+                padding-left: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quote {
+                font-size: 1.5rem;
+            }
+
+            .opensource-section {
+                padding: 40px 24px;
+            }
+
+            .github-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="https://res.cloudinary.com/dnh4fonis/image/upload/v1766755541/gk1gp3sf5ihygmo9wfv8.png"
+                    alt="Reality">
+                Reality
+            </a>
+            <div class="navbar-menu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="features.html" class="navbar-link">Features</a>
+                <a href="guide.html" class="navbar-link">User Guide</a>
+                <a href="about.html" class="navbar-link active">About</a>
+                <a href="privacy.html" class="navbar-link">Privacy</a>
+            </div>
+            <a href="https://github.com/pawanwashudev-official/Reality/releases/latest" class="navbar-cta"
+                target="_blank">
+                Download
+            </a>
+            <button class="navbar-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="reveal">About <span class="gradient-text">Reality</span></h1>
+            <p class="reveal">The story, mission, and philosophy behind the app.</p>
+        </div>
+    </header>
+
+    <!-- Story Section -->
+    <section class="section">
+        <div class="container">
+            <div class="story-section">
+                <div class="story-content reveal">
+                    <h2>Why I Built <span class="gradient-text">Reality</span></h2>
+                    <p>
+                        I was losing hours every day to mindless scrolling. Instagram, YouTube, Twitter — the algorithms
+                        were winning. I tried other focus apps, but they all had the same problems: premium paywalls,
+                        data collection, or bypass loopholes.
+                    </p>
+                    <p>
+                        So I built Reality — the app I needed but couldn't find. No subscriptions. No data collection.
+                        No half-measures. Just genuine protection from digital distractions.
+                    </p>
+                    <p>
+                        The goal was simple: create something so robust that even I couldn't trick my way out of it.
+                        That's why Strict Mode exists — for those moments when willpower alone isn't enough.
+                    </p>
+                </div>
+                <div class="story-visual reveal">
+                    <div class="developer-card">
+                        <!-- PLACEHOLDER: Developer photo -->
+                        <div class="developer-avatar">
+                            <div class="img-placeholder" style="min-height: 100%; border-radius: 50%; border: none;">
+                                <div class="img-placeholder-icon" style="font-size: 3rem;">👤</div>
+                            </div>
+                            <!-- Uncomment when you have the real image:
+                            <img src="YOUR_CLOUDINARY_URL/developer_photo.jpg" alt="Pawan Washudev">
+                            -->
+                        </div>
+                        <h3 class="developer-name">Pawan Washudev</h3>
+                        <p class="developer-role">Creator & Developer</p>
+                        <p class="developer-bio">
+                            Android developer passionate about digital wellbeing and privacy-first software. Building
+                            tools that respect users.
+                        </p>
+                        <div class="developer-links">
+                            <a href="https://github.com/pawanwashudev-official" target="_blank" title="GitHub">📂</a>
+                            <a href="https://t.me/pawanwashudev" target="_blank" title="Telegram">💬</a>
+                            <a href="mailto:pawanwashudev@gmail.com" title="Email">✉️</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-label">Our Values</p>
+                <h2 class="section-title">What We <span>Believe In</span></h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal stagger-1">
+                    <div class="value-icon">🔒</div>
+                    <h3>Privacy First</h3>
+                    <p>Your data is yours. We don't collect, store, or transmit anything. Reality works 100% offline and
+                        has no internet permission.</p>
+                </div>
+                <div class="value-card reveal stagger-2">
+                    <div class="value-icon">💎</div>
+                    <h3>Free Forever</h3>
+                    <p>All features are free. No premium tiers, no subscriptions, no "unlock for $9.99". We believe
+                        everyone deserves digital wellbeing tools.</p>
+                </div>
+                <div class="value-card reveal stagger-3">
+                    <div class="value-icon">🔓</div>
+                    <h3>Open Source</h3>
+                    <p>Every line of code is public on GitHub. Don't trust us? Read the code yourself. Transparency
+                        builds trust.</p>
+                </div>
+                <div class="value-card reveal stagger-4">
+                    <div class="value-icon">🎯</div>
+                    <h3>Actually Works</h3>
+                    <p>No half-measures. Strict Mode is truly unbreakable. We built features that work even when you
+                        don't want them to.</p>
+                </div>
+                <div class="value-card reveal stagger-5">
+                    <div class="value-icon">✨</div>
+                    <h3>Beautiful Design</h3>
+                    <p>Focus apps don't have to be ugly. Material You design, smooth animations, and attention to detail
+                        make Reality a joy to use.</p>
+                </div>
+                <div class="value-card reveal stagger-6">
+                    <div class="value-icon">🚀</div>
+                    <h3>Continuous Improvement</h3>
+                    <p>Regular updates based on user feedback. We listen, we iterate, we improve. Your input shapes
+                        Reality's future.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="section">
+        <div class="container">
+            <div class="quote-section reveal">
+                <p class="quote">
+                    "The cost of a thing is the amount of <span>life</span> which is required to be exchanged for it."
+                </p>
+                <p class="quote-author">— Henry David Thoreau</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Source Section -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="opensource-section reveal">
+                <h2>100% Open Source</h2>
+                <p>Reality is completely open source. Every line of code is available on GitHub for you to read, audit,
+                    and contribute to.</p>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <h3>15K+</h3>
+                        <p>Lines of Code</p>
+                    </div>
+                    <div class="github-stat">
+                        <h3>75+</h3>
+                        <p>Kotlin Files</p>
+                    </div>
+                    <div class="github-stat">
+                        <h3>0</h3>
+                        <p>Tracking Libraries</p>
+                    </div>
+                </div>
+                <a href="https://github.com/pawanwashudev-official/Reality" class="btn btn-primary btn-lg"
+                    target="_blank">
+                    ⭐ Star on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-label">Journey</p>
+                <h2 class="section-title">Reality's <span>Story</span></h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <p class="timeline-date">December 2025</p>
+                        <h4>Version 1.0 Launch</h4>
+                        <p>First public release with core blocking, usage stats, and Strict Mode.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <p class="timeline-date">December 2025</p>
+                        <h4>Website Launch</h4>
+                        <p>Official website with documentation, guides, and privacy policy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <p class="timeline-date">2026</p>
+                        <h4>What's Next</h4>
+                        <p>Widgets, Pomodoro timer, statistics export, and more based on your feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-dark">
+        <div class="container text-center">
+            <h2 class="section-title reveal">Join the <span class="gradient-text">Movement</span></h2>
+            <p class="section-subtitle reveal mb-4">Take control of your digital life. Download Reality today.</p>
+            <div class="reveal flex flex-center gap-2">
+                <a href="https://github.com/pawanwashudev-official/Reality/releases/latest"
+                    class="btn btn-primary btn-lg" target="_blank">
+                    📥 Download Reality
+                </a>
+                <a href="https://github.com/pawanwashudev-official/Reality" class="btn btn-secondary btn-lg"
+                    target="_blank">
+                    ⭐ Star on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="navbar-logo">
+                        <img src="https://res.cloudinary.com/dnh4fonis/image/upload/v1766755541/gk1gp3sf5ihygmo9wfv8.png"
+                            alt="Reality">
+                        Reality
+                    </a>
+                    <p>The world's most powerful digital focus app. Zero data collection. Zero ads.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="features.html">Features</a>
+                    <a href="guide.html">User Guide</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="https://github.com/pawanwashudev-official/Reality" target="_blank">GitHub</a>
+                    <a href="https://github.com/pawanwashudev-official/Reality/releases" target="_blank">Releases</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="mailto:pawanwashudev@gmail.com">Email</a>
+                    <a href="https://t.me/pawanwashudev" target="_blank">Telegram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Neubofy. Made with ❤️ by Pawan Washudev</p>
+                <div class="social-links">
+                    <a href="https://github.com/pawanwashudev-official" target="_blank">📂</a>
+                    <a href="https://t.me/pawanwashudev" target="_blank">💬</a>
+                    <a href="mailto:pawanwashudev@gmail.com">✉️</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
